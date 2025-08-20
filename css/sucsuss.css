@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+    background-color: white;
+}
+
+.section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+position: relative;
+    width: 100%;
+    padding: 10%;
+    text-align: center;
+    background: white;
+    height: 90vh;
+}
+hr{
+    margin: 0;
+    padding: 0;
+    opacity: 0.3;
+}
+.home{
+    padding: 30px 120px;
+}
+.section h1{
+    font-weight: 600;
+    line-height: 90%;
+}
+.section p{
+    font-style: degular-regular;
+}
+.imgframe{
+    padding: 10px 10px;
+    text-align: center;
+}
+.imgframe img{
+    width: 24%;
+}
+
+p{
+    text-align: center;
+    color: black;
+}
+a{
+    color: black;
+}
+.simg{
+    text-align: center;
+}
+.simg img{
+    width: 25%;
+}
+
+@media (max-width: 768px){
+    .section{
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: .8fr .7fr .6fr .6fr;
+    position: relative;
+    }
+.home{
+    padding: 30px 30px;
+    margin-top: 90px;
+}
+.section h1{
+    font-weight: 600;
+}
+.section h2{
+    font-weight: 300;
+}
+.imgframe{
+    padding: 10px 10px;
+    text-align: center;
+}
+.imgframe img{
+    width: 80%;
+}
+
+
+a{
+    color: black;
+    font-size: 13px;
+}
+.simg{
+    text-align: center;
+}
+.simg img{
+    width: 96%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+}
+.delivery-detailssss p{
+    font-family: Degular-regular;
+    font-size: 14px;
+    line-height: 104%;
+}
+.delivery-details p{
+    text-align: center;
+    color: black;
+    font-size: 14px;
+}
+.headddings {
+    line-height: 180%;
+    height: 90px;
+}
+.headddings p{
+ font-family: degular-regular;
+ font-size: 22px;
+}
+
+.sucssuss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: white;
+    padding-bottom: 20px;
+}
+.sucssuss1{
+    width: 50%;
+}
+.sucssuss2s{
+   width: 40%;
+}
+.sucssuss1 p{
+    color:"#000000";
+    text-align: left;
+    font-family:degular-medium;
+    line-height: 109%;
+    font-size: 14px;
+    color: #575757;
+}
+.sucssuss2s{
+   width: 60%;
+}
+.buy-now-btn{
+  background-color: white;
+}
+.buy-now-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}

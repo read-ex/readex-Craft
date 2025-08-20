@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/Common/navbar.css">
+    <link rel="stylesheet" href="css/Common/slide-menu.css">
+    <link rel="stylesheet" href="css/Product-page.css">
+</head>
+<body>
+      <div class="navbar-links">
+            <div class="touchoff"></div>
+            <div class="links">
+                <button onclick="close1()">
+                    <img src="https://www.svgrepo.com/show/350281/close.svg" alt="">
+                </button>
+                <ul>
+                    <li><a href="/index.html" class="nobuy" style="color: black;">Home</a></li>
+                    <li><a href="/about.html" class="nobuy">About Us</a></li>
+                    <li><a href="#contact" class="nobuy">Contact Us</a></li>
+                    <li><a href="/product.html" class="nobuy buy">Buy Now</a></li>
+                    <li><a href="/Replacementandreplacement.html" class="nobuy mobile">Return Policy</a></li>
+                    <li id="orderbutton"><a href="/my-order.html">Shop Now</a></li>
+                </ul>
+
+                <div class="accoud">
+                    <div><p>Account</p></div>
+                    <div class="condinu"><img src="icons/Vector.svg" ></div>
+                </div>
+                <style>
+                    .logo{
+                        gap: 10px;
+                    }
+                    .accoud{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border:1.6px dotted black ;
+                        align-self: bottom;
+                        width: 80%;
+                        margin: 10px auto;
+                        height: 60px;
+                        border-radius: 35px;
+                        padding: 0px 10px 0px 23px;
+                        position: absolute;
+                        bottom: 80px;
+                        left: 30px;
+                    }
+                    .accoud p{
+                        font-size: 18px;
+                    }
+                    .condinu{
+                        background-color: black;
+                        border-radius: 60px;
+                    }
+                    .condinu img{
+                        width: 36px;
+                    }
+                </style>
+
+           </div>
+           
+        </div>
+   <div class="white"></div>
+   <nav>
+        <div class="logo" style="display: flex; align-items: center; ">
+            
+        
+            <img src="icons/right-arrow.png" style="width: 30px; height: 20px;">
+                <img src="icons/ReadexCraftsShop.svg" alt="" class="logo" width="120px">
+            
+        </div>
+<div class="cart-and-menu">
+        <div class="surch">
+            <button id="open-search"><img src="icons/Search.svg"><p>Search</p></button>
+        </div>
+        <!-- Search Overlay -->
+      
+        <div class="toggle">
+                <button class="menu toggle-button">
+                    <img src="icons/align-left.svg" width="30px" alt="">
+                </button>
+            </div>
+            </div>
+       
+    </nav>
+
+
+       <div id="search-overlay" style="display:none;">
+            <div class="search-modal">
+             <button id="close-search" class="close-search-btn"><img src="icons/Group.svg" alt="" ></button>
+                <div class="search-input">
+                    <img src="icons/Search111.svg">
+                    <input type="text" placeholder="Search" id="search-box" autocomplete="off">
+                </div>
+                    <div class="suggestions">
+                        <p>Top Suggestions</p>
+                        <ul id="suggestions-list">
+                        <!-- Suggestions will appear here -->
+                        </ul>
+                    </div>
+                <div class="products">
+                    <!-- Products will be shown here only when searching -->
+                    <div id="search-products">
+                        <div class="shpe-product" id="search-adjustable-quran-stand">
+                            <div class="shpe-product-image"><img src="img/product-1.png"></div>
+                            <div class="shope-product-discription">
+                                <p class="shope-product-name">Adjustable Quran <br>Stand</p>
+                                <div class="product-price-row">
+                                    <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+                                    <div class="old-price-container">
+                                        <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+                                        <img src="icons/Line 7.png" class="line-through-img" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="shpe-product" id="search-canvas-wall-painting">
+                            <div class="shpe-product-image"><img src="img/0001.png"></div>
+                            <div class="shope-product-discription">
+                                <p class="shope-product-name">Canvas Wall <br>Painting</p>
+                                <div class="product-price-row">
+                                    <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+                                    <div class="old-price-container">
+                                        <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+                                        <img src="icons/Line 7.png" class="line-through-img" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        // Product data
+                        const products = [
+                            {
+                                id: "search-adjustable-quran-stand",
+                                name: "Adjustable Quran Stand",
+                                img: "img/product-1.png",
+                                price: 3950,
+                                oldPrice: 4500,
+                                keywords: "adjustable quran stand"
+                            },
+                            {
+                                id: "search-canvas-wall-painting",
+                                name: "Canvas Wall Painting",
+                                img: "img/0001.png",
+                                price: 3950,
+                                oldPrice: 4500,
+                                keywords: "canvas wall painting"
+                            }
+                        ];
+
+                        const searchProductsDiv = document.getElementById('search-products');
+                        const productsHTML = products.map(product => `
+                            <div class="shpe-product" id="${product.id}">
+                                <div class="shpe-product-image"><img src="${product.img}"></div>
+                                <div class="shope-product-discription">
+                                    <p class="shope-product-name">${product.name.replace(' ', '<br>')}</p>
+                                    <div class="product-price-row">
+                                        <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">${product.price}</span></span>
+                                        <div class="old-price-container">
+                                            <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">${product.oldPrice}</span></span>
+                                            <img src="icons/Line 7.png" class="line-through-img" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
+
+                        // Show/hide products based on search
+                        function showProducts(query) {
+                            if (query.trim().length > 0) {
+                                // Filter products
+                                const filtered = products.filter(p =>
+                                    p.name.toLowerCase().includes(query.toLowerCase())
+                                );
+                                if (filtered.length > 0) {
+                                    searchProductsDiv.innerHTML = filtered.map(product => `
+                                        <div class="shpe-product" id="${product.id}">
+                                            <div class="shpe-product-image"><img src="${product.img}"></div>
+                                            <div class="shope-product-discription">
+                                                <p class="shope-product-name">${product.name.replace(' ', '<br>')}</p>
+                                                <div class="product-price-row">
+                                                    <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">${product.price}</span></span>
+                                                    <div class="old-price-container">
+                                                        <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">${product.oldPrice}</span></span>
+                                                        <img src="icons/Line 7.png" class="line-through-img" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `).join('');
+                                    searchProductsDiv.style.display = 'grid';
+                                } else {
+                                    searchProductsDiv.innerHTML = "<p>No products found.</p>";
+                                    searchProductsDiv.style.display = 'block';
+                                }
+                            } else {
+                                searchProductsDiv.style.display = 'grid';
+                                productsHTML
+                            }
+                        }
+
+                        // Attach to search box
+                        document.getElementById('search-box').addEventListener('input', function(e) {
+                            showProducts(e.target.value);
+                        });
+
+                        
+                    </script>
+                    <style>
+                        #search-products {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            gap: 10px;
+                            margin-top: 30px;
+                        }
+                        #search-products .shpe-product {
+                            background: #fafafa;
+                            border: 1px solid #eee;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+        <style>
+            #search-overlay {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            background: rgba(106, 106, 106, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            transition: background 0.3s;
+            }
+            .search-modal {
+            background: #fff;
+            width: 100vw;
+            max-width: 100vw;
+            height: 100vh;
+            max-height: 100vh;
+            padding: 40px 20px 20px 20px;
+            box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            /* Animation initial state */
+            transform: translateY(100%) ;
+            opacity: 0;
+            transition: 
+                transform 0.35s ease-in-out,
+                opacity 0.25s;
+            }
+            #search-overlay.active .search-modal {
+            transform: translateY(0) ;
+            opacity: 1;
+            }
+            @media (min-width: 600px) {
+           
+            }
+            .close-search-btn {
+             width: 15px;
+             cursor: pointer;
+             margin-left:93% ;
+             background-color: transparent;
+            
+            }
+            .search-input{
+                display: flex;
+                align-items: center;
+                margin: 30px 0px;
+               gap: 15px;
+            }
+            .close-search-btn img {
+                width: 100%;
+              
+            }
+            #search-box {
+                border: none;
+                background:transparent;
+                height: 40px;
+               font-size:36px;
+                width: 100%;
+                /* padding:19px 15px 10px!important; */
+            }
+            #search-box:focus {
+                outline: none;}
+            #search-box::placeholder {
+                color: #999;
+                font-size:36px;
+                font-family: degular-semibold;
+            }
+            .suggestions p{
+                font-size: 20px;
+                font-family: degular-webfont;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+                #suggestions-list {
+           
+            list-style: none;
+            
+            }
+            #suggestions-list li {
+           
+           font-family: degular-medium;
+              font-size: 18px;
+              font-weight: 500;
+            }
+        </style>
+        
+        <script>
+            // Demo suggestions
+            const suggestions = [
+            '<img src="icons/majesticons_arrow-up.svg" style="width:18px;vertical-align:middle;margin-right:8px;">Adjustable Quran Stand',
+            '<img src="icons/majesticons_arrow-up.svg" style="width:18px;vertical-align:middle;margin-right:8px;">Canvas Wall Painting'
+            ];
+
+            const openBtn = document.getElementById('open-search');
+            const overlay = document.getElementById('search-overlay');
+            const closeBtn = document.getElementById('close-search');
+            const searchBox = document.getElementById('search-box');
+            const suggestionsList = document.getElementById('suggestions-list');
+
+            openBtn.onclick = (e) => {
+            // Get button position for animation origin
+            const btnRect = openBtn.getBoundingClientRect();
+            // Set transform-origin to button's center X
+            const modal = overlay.querySelector('.search-modal');
+            modal.style.transformOrigin = `${btnRect.left + btnRect.width/2}px top`;
+            overlay.style.display = 'flex';
+            // Force reflow to enable transition
+            void modal.offsetWidth;
+            overlay.classList.add('active');
+            setTimeout(() => searchBox.focus(), 200);
+            showSuggestions('');
+            };
+            closeBtn.onclick = () => {
+            const modal = overlay.querySelector('.search-modal');
+            overlay.classList.remove('active');
+            // Wait for animation to finish before hiding
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                searchBox.value = '';
+                suggestionsList.innerHTML = '';
+            }, 350);
+            };
+            overlay.onclick = (e) => {
+            if (e.target === overlay) closeBtn.onclick();
+            };
+
+            function showSuggestions(query) {
+            const filtered = suggestions.filter(item =>
+                item.toLowerCase().includes(query.toLowerCase())
+            );
+            suggestionsList.innerHTML = filtered.map(item =>
+                `<li>${item}</li>`
+            ).join('');
+            }
+
+            searchBox.oninput = (e) => {
+            showSuggestions(e.target.value);
+            };
+
+            suggestionsList.onclick = (e) => {
+            if (e.target.tagName === 'LI') {
+                searchBox.value = e.target.textContent;
+                suggestionsList.innerHTML = '';
+            }
+            };
+        </script>
+
+
+
+
+
+
+
+
+    <style>
+        nav{
+            padding: 0px 20px 0px 18px;
+        }
+        .cart-and-menu{
+            gap: 16px;
+        }
+
+        .surch button{
+            display: flex;
+            background-color: black;
+            padding: 10px 15px;
+            color: white;
+            gap: 10px;
+            border-radius: 30px;
+            border: none;
+        }
+        .surch button p{
+            font-size: 15px;
+            font-family: Degular-webfont;
+            color: white;
+        }
+    </style>
+
+ 
+
+
+
+
+<div class="shop-div">
+    <div class="shpe-product" id="adjustable-quran-stand">
+        <div class="shpe-product-image"><img src="img/product-1.png"></div>
+        <div class="shope-product-discription">
+            <p class="shope-product-name">Adjustable Quran <br>Stand</p>
+              <div class="product-price-row">
+        <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+        <div class="old-price-container">
+            <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+            <img src="icons/Line 7.png" class="line-through-img" alt="">
+        </div>
+       </div>
+        </div>
+    </div>
+
+     <div class="shpe-product" id="canvas-wall-painting">
+        <div class="shpe-product-image"><img src="img/0001.png"></div>
+        <div class="shope-product-discription">
+            <p class="shope-product-name">Canvas
+Wall <br>Painting </p>
+              <div class="product-price-row">
+        <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+        <div class="old-price-container">
+            <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+            <img src="icons/Line 7.png" class="line-through-img" alt="">
+        </div>
+       </div>
+        </div>
+    </div>
+
+
+    <div class="shpe-product" id="adjustable-quran-stand">
+        <div class="shpe-product-image"><img src="img/product-1.png"></div>
+        <div class="shope-product-discription">
+            <p class="shope-product-name">Adjustable Quran <br>Stand</p>
+              <div class="product-price-row">
+        <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+        <div class="old-price-container">
+            <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+            <img src="icons/Line 7.png" class="line-through-img" alt="">
+        </div>
+       </div>
+        </div>
+    </div>
+
+     <div class="shpe-product" id="canvas-wall-painting">
+        <div class="shpe-product-image"><img src="img/0001.png"></div>
+        <div class="shope-product-discription">
+            <p class="shope-product-name">Canvas
+Wall <br>Painting </p>
+              <div class="product-price-row">
+        <span class="price current-price"><span class="price-icon">₹</span><span class="price-value">3950</span></span>
+        <div class="old-price-container">
+            <span class="price old-price"><span class="price-icon">₹</span><span class="price-value">4500</span></span>
+            <img src="icons/Line 7.png" class="line-through-img" alt="">
+        </div>
+       </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+     
+<style>
+    .shop-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        justify-items: center;
+        aspect-ratio: 0 / 1.3;
+        color: white;
+        overflow: hidden;
+          margin: 5% auto; 
+      color: black;;
+    }
+    .shpe-product{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 15px;
+        border: 0.5px solid #656565;
+        padding-bottom: 10px;
+        height: fit-content;
+        width: fit-content;
+        margin-bottom: 10px;
+        align-self: center;
+    }
+
+    
+    .shpe-product-image{
+        width: 170px;
+    }
+    .shpe-product-image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .shope-product-name{
+        font-size: 17px;
+        font-family: degular-medium;
+        letter-spacing: 0%;
+        line-height: 104%;
+        font-weight: 500;
+    }
+    @media (min-width: 600px) {
+        .shop-div{
+            grid-template-columns: 1fr 1fr 1fr 1fr;;
+            aspect-ratio:0 ;
+        }
+        .shpe-product{
+            width: 90%;
+            margin: auto;
+        }
+        .shpe-product-image{
+            width: 100%;
+        }
+    }
+</style>
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/navbar.js"></script>
+</body>
+</html>

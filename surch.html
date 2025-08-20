@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        #search-overlay {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        #search-overlay.active {
+            display: flex;
+        }
+        .search-modal {
+            background: #fff;
+            width: 90vw;
+            height: 99vh;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 32px 24px 24px 24px;
+            gap: 30px;
+            transform: scale(0.7);
+            opacity: 0;
+            transition: 
+                transform 0.35s cubic-bezier(.4,2,.6,1),
+                opacity 0.25s;
+        }
+        #search-overlay.active .search-modal {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .close-search-btn {
+            
+           
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+        #search-box {
+            width: 100%;
+            padding: 12px 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        #suggestions-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        #suggestions-list li {
+            padding: 8px 6px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        #suggestions-list li:hover {
+            background: #f0f0f0;
+        }
+      
+    </style>
+</head>
+<body>
+    <button id="open-search" class="search-btn">&#128269;</button>
+
+    <div id="search-overlay">
+        <div class="search-modal">
+            <div><button id="close-search" class="close-search-btn">&times;</button></div>
+            <input type="text" id="search-box" placeholder="Search products..." autocomplete="off">
+            <ul id="suggestions-list">
+                <!-- Suggestions will appear here -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        // Demo suggestions
+        const suggestions = [
+            "Adjustable Quran Stand",
+            "Canvas Wall Painting",
+            "Wooden Quran Stand",
+            "Islamic Calligraphy",
+            "Prayer Mat"
+        ];
+
+        const openBtn = document.getElementById('open-search');
+        const overlay = document.getElementById('search-overlay');
+        const closeBtn = document.getElementById('close-search');
+        const searchBox = document.getElementById('search-box');
+        const suggestionsList = document.getElementById('suggestions-list');
+
+        window.onload = () => {
+            overlay.classList.add('active');
+            setTimeout(() => searchBox.focus(), 200);
+            showSuggestions('');
+        };
+        closeBtn.onclick = () => {
+            overlay.classList.remove('active');
+            searchBox.value = '';
+            suggestionsList.innerHTML = '';
+        };
+        overlay.onclick = (e) => {
+            if (e.target === overlay) closeBtn.onclick();
+        };
+
+        function showSuggestions(query) {
+            const filtered = suggestions.filter(item =>
+                item.toLowerCase().includes(query.toLowerCase())
+            );
+            suggestionsList.innerHTML = filtered.map(item =>
+                `<li>${item}</li>`
+            ).join('');
+        }
+
+        searchBox.oninput = (e) => {
+            showSuggestions(e.target.value);
+        };
+
+        suggestionsList.onclick = (e) => {
+            if (e.target.tagName === 'LI') {
+                searchBox.value = e.target.textContent;
+                suggestionsList.innerHTML = '';
+            }
+        };
+    </script>
+</body>
+</html>
