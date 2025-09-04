@@ -27,7 +27,7 @@ function renderNavbarLinks() {
         <img src="https://www.svgrepo.com/show/350281/close.svg" alt="">
       </button>
       <ul>
-        <li><a href="/" class="nobuy">Home</a></li>
+        <li><a href="readex-Craft/" class="nobuy">Home</a></li>
         <li><a href="about.html" class="nobuy">About Us</a></li>
         <li><a href="contact.html" class="nobuy">Contact Us</a></li>
         <li><a href="product.html" class="nobuy buy">Buy Now</a></li>
@@ -83,3 +83,4 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("footer-details").innerHTML = renderFooter();
   }
 });
+
