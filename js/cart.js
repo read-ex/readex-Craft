@@ -58,13 +58,14 @@
                 if (cart.length === 0) {
                     checkoutBtn.innerHTML = 'Continue Shopping' + arrow;       checkoutBtn.onclick = function() {
                     checkoutBtn.classList.add('gotoshop'); // Add your desired class name
-                    window.location.href = '/shop.html'; // Change to your shop page URL// Change to your shop page URL
+                    window.location.href = 'shop.html'; // Change to your shop page URL// Change to your shop page URL
                     };
                 } else {
                     checkoutBtn.innerHTML = 'Checkout'+ arrow;
                     checkoutBtn.onclick = function() {
-                        window.location.href = '/address.html'; // Change to your checkout page URL
+                        window.location.href = 'address.html'; // Change to your checkout page URL
                     };
                 }
             }
+
         });
