@@ -1,0 +1,284 @@
+    .MARGINNEE{
+                    margin-left: 40px;
+                    display: block;
+                    overflow: hidden;
+                    width: 100vw;
+                }
+            .slide-menu{
+                display: flex;
+                overflow-x:auto;
+                gap: 8px;
+                padding: 5px;
+                width: 370px;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+            }
+            .slide-menu-item{
+                flex: 0 0 auto;
+                background-color: #ffffff;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                scroll-snap-align: start;
+                padding-bottom:30px ;
+            }
+            .slide-menu-img{
+                width: 315px;
+                background-color: #F4F4F4;
+                border-radius: 15px;
+                overflow: hidden;
+                height: 44vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               
+            }
+            .slide-menu-title {
+                width: 100%;
+                margin-top: 12px;
+                margin-bottom: 10px;
+                padding-left: 18PX;
+            }
+            .slide-menu-title p{
+                text-align: left;
+                font-family: Degular-webfont;
+              font-size: 19px;
+                color: #000000;
+                margin-top: 10px;
+                line-height: 104%;
+            }
+    .slide-menu::-webkit-scrollbar{
+        display: block;
+        height: 3px;
+        background: #F8F8F8;
+    }
+    .slide-menu::-webkit-scrollbar-thumb {
+        background: #8D8D8D;
+        display: block;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+.second-section{
+  height: 85vh;
+  min-height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* gap: 20px; Adjust the value as needed for vertical spacing */
+  overflow: hidden;
+  background-color: #ffffff;
+    background-color: white;
+  
+}
+.main{
+  width: 87%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding-bottom: 10px;
+}
+.text{
+  width:100%;
+  padding-left: 5px;
+  max-width: 400px;
+  background-color: white;
+}
+.secondhead{
+  font-size: 36px;
+  line-height: 2.2rem;
+  margin-bottom: 0px;
+   color: black;
+}
+.secondpara{
+  margin-top: 2px;
+ color:#717171;
+ font-size: 17px;
+ font-family: Degular-Regular;
+ font-weight: 400;
+}
+
+.product{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F4F4;;
+  border-radius: 20px;
+  border:dotted 1.5px black;
+  overflow: hidden;
+  max-width: 400px;
+}
+.slideshow-container {
+  width: 90%;
+  display: block;
+  
+  border-radius: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.mySlides{
+  width: 100%;
+  
+}
+.mySlides img {
+  width: 100%;
+  border-radius: 15px;
+}
+.dot-container {
+    display: block;
+    width: 100%;
+    padding: 0px 0px 0px  26px; 
+    height: 18px;
+    
+}
+.dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+    
+}
+.active, .dot:hover {
+    background-color: #000000;
+}
+.discription{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 23px 20px 26px;
+}
+.discription .left{
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.redcross {
+  display:flex;
+  align-items: center;
+  padding: 4px 12px;
+  
+}
+.price {
+  font-size: 18px;
+   font-family: "Anek Malayalam", sans-serif;
+   font-weight: 400;
+   width: 60px;
+}
+#strike-through{
+  width:100px;
+}
+.redcross .price {
+  z-index: 9;
+  
+}
+.redcross img {
+  width: 54px;
+  height: 18px;
+  z-index: 10;
+  
+  position: absolute;
+}
+
+.discription .right{
+  display: flex;
+ 
+}
+.right button{
+  background-color: black;
+  color: white;
+  width: 90px;
+  height: 35px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-family: Degular-medium;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(-5px);
+}
+.right button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 28%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.282) ;
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+.right button::before {
+  animation: shine 3s forwards infinite;
+}
+@keyframes shine {
+  
+  100% {
+    left: 120%;
+  }
+}
+.vector{
+  width: 100%;
+  height: auto;
+  background-color: white;
+  overflow: hidden;
+  padding:0px;
+}
+.vector img{
+width: 1300px;
+  height: auto;
+}
+@media (min-width: 905px) {
+  
+.main{
+  
+  width: 70%;
+  justify-content: space-around;
+  flex-direction: row;
+  gap: 50px;
+}
+.secondhead{
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: 600;
+    margin: 0;
+}
+.secondpara{
+  margin-top: 2px;
+ color:#717171;
+ font-size: 17px;
+ font-family: Degular-Regular;
+ font-weight: 400;
+}
+.slideshow-container {
+  margin-bottom: 16px;
+}
+.product{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F4F4;;
+  border-radius: 20px;
+  border:dotted 1.5px black;
+  overflow: hidden;
+  max-width: 40%;
+}
+
+.vector img{
+width: 100%;
+  height: auto;
+}
+}
+

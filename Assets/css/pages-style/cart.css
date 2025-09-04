@@ -1,0 +1,219 @@
+.cartt {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading {
+    padding: 23px 10px 13px 6px;
+    width: 85%;
+}
+.heading p{
+    font-size: 26px;
+    font-family: degular-semibold;
+}
+.Empty-Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    margin-top: 20px;
+}
+.Empty-Icon img {
+    width: 190px;
+   
+}
+.products-and-details {
+    width: 85%;
+    
+}
+
+.cart-product {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    
+    margin: 10px 0px;
+}
+
+.cart-product-image {
+    display: flex;
+    width:120px;
+    border-radius:18px;
+    overflow: hidden;
+    /* height: 150px; */
+}
+.cart-product-image img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+.cart-product-details {
+    display: grid;
+    grid-template-columns: 2fr 2fr .5fr;
+    grid-template-areas: 
+        "title title cross"
+        "price qnt qnt";
+    width: calc(100% - 120px);
+    position: relative;
+    justify-items: space-between;
+}
+.cart-product-title {
+    grid-area: title;
+    justify-self: start;
+  align-self: start;
+}
+.cart-product-title p{
+    font-family: degular-regular;
+    line-height: 110%;
+    font-size: 17px;
+    margin-top: 9px;
+    font-weight: 400;
+}
+
+.cart-product-cross-icon {
+    grid-area: cross;
+    justify-self: end;
+    align-self: start;
+    
+    justify-self: end;
+  align-self: start;
+}
+
+.cart-product-price {
+    grid-area: price;
+    justify-self: start;
+  align-self: end;
+    
+    margin-bottom: 2.5px;
+}
+.cart-product-price p{
+    font-size: 19px;
+}
+.cart-price-qnt {
+    grid-area: qnt;
+    justify-self: end;
+  align-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    height: 32px;
+    border: 1px solid #000000;
+    padding: 10px 8px;
+    border-radius: 30px;
+    width: 100px;
+}
+.cart-price-qnt p{
+    font-family: poppins;
+}
+.cart-price-qnt button{
+    background-color: transparent;
+}
+.hrl{
+    border: .5px solid #CFCFCF;
+    margin: 24px auto 29px auto;
+    width: 95%;
+}
+.cart-price-details {
+    width: 98%;
+    
+}
+
+.details-heading {
+    padding: 0px 10px;
+    
+    margin-top: 20px;
+}
+.details-heading p{
+    font-size: 22px;
+
+}
+.details-price {
+    width: 100%;
+    padding: 13px 0px 4px;
+    
+    position: relative;
+}
+
+.item-prise {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+}
+.total-price .item-prise p{
+    font-family: Degular-semibold;
+}
+.details-discription {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    padding: 0px 10px;
+    
+    font-family: Degular-webfont;
+}
+.column {
+    height: 100%;
+    
+}
+
+
+
+.valuu {
+    font-family: degular-regular;
+    font-size: 17px;
+    
+    position: absolute;
+    right: 0;
+}
+
+
+
+
+.total-price {
+    position: relative;
+    
+}
+
+
+
+.tax {
+    text-align: right;
+    
+}
+.tax p{
+    font-size: 11.2px;
+    line-height: 110%;
+    color: #696969;
+    font-family: degular-regular;
+}
+
+.chekout-cart-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: white;
+}
+
+.buy-now-btn {
+    width: 87%;
+    padding: 16px 0px;
+    
+}
+
+
+ .price {
+  font-size: 15px;
+   font-family: "Anek Malayalam", sans-serif;
+   font-weight: 400;
+   width: 60px;
+}

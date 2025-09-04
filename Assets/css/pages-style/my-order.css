@@ -1,0 +1,113 @@
+   #delete-popup {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.4);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+    #delete-popup .popup-content {
+        background: #fff;
+        border-radius: 25px;
+        padding: 32px 20px 20px;
+        max-width: 320px;
+        width: 90%;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        text-align: center;
+        position: relative;
+        transition: 0.4s ease-in-out;
+    }
+    #delete-popup .popup-content img {
+        width: 48px;
+        margin-bottom: 7px;
+    }
+    #delete-popup .popup-content p {
+        font-size: 17px;
+        margin-bottom: 22px;
+        line-height: 130%;
+        color: #6E6E6E;
+    }
+    #delete-popup .popup-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    #confirm-delete,#cancel-delete{
+        width: 50%;
+        height: 55px;
+         border-radius: 13px;
+         border: none;
+         padding: 8px 20px;
+         font-size: 16px;
+        cursor: pointer;
+    }
+
+    #cancel-delete {
+        background: #DFFFE0;
+        color: #12AC6B;
+    }
+    #confirm-delete {
+        background: #FFDFDF;
+        color: #FF5252;
+    }
+    #delete-popup .popup-content {
+        opacity: 0;
+        transform: scale(0.92);
+        animation: popup-in 0.32s cubic-bezier(.22,1.12,.62,1.01) forwards;
+    }
+    #delete-popup[style*="display: none"] .popup-content {
+        opacity: 0 !important;
+        transform: scale(0.92) !important;
+        animation: none !important;
+    }
+    @keyframes popup-in {
+        from {
+            opacity: 0;
+            transform: scale(0.92);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    body{
+    background-color: white;
+}
+.my-order{
+    border: 1.5px dotted #606060;
+    padding: 8px 20px;
+    border-radius: 26px;
+    margin: 2px 25px;
+    grid-area: qnt;
+}
+.cart-product-details {
+    grid-template-areas:
+        "title title title"
+        "price qnt qnt";
+}
+.order-status{
+    display: flex;
+     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.order-status p{
+    font-size: 17px;
+   margin-left: 10px;
+    
+}
+.cart-product-image {
+    border-radius: 14px;
+    
+}
+ a:focus, a:active,
+                .slideshow-container:focus, .slideshow-container:active,
+                .mySlides img:focus, .mySlides img:active {
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
+                a, .slideshow-container, .mySlides img {
+                    -webkit-tap-highlight-color: transparent !important;
+                }
