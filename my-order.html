@@ -4,101 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/Common/slide-menu.css">
-    <link rel="stylesheet" href="css/Common/navbar.css">
-    <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/my-orders.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/Common/slide-menu.css">
+    <link rel="stylesheet" href="Assets/css/Common/navbar.css">
+    <link rel="stylesheet" href="Assets/css/Pages-style/cart.css">
+    <link rel="stylesheet" href="Assets/css/Pages-style/my-order.css">
 </head>
 <body>
-     <style>
-                a:focus, a:active,
-                .slideshow-container:focus, .slideshow-container:active,
-                .mySlides img:focus, .mySlides img:active {
-                    outline: none !important;
-                    box-shadow: none !important;
-                }
-                a, .slideshow-container, .mySlides img {
-                    -webkit-tap-highlight-color: transparent !important;
-                }
-                </style>
-      <div class="navbar-links">
-            <div class="touchoff"></div>
-            <div class="links">
-                <button onclick="close1()">
-                    <img src="https://www.svgrepo.com/show/350281/close.svg" alt="">
-                </button>
-                <ul>
-                    <li><a href="/index.html" class="nobuy" style="color: black;">Home</a></li>
-                    <li><a href="/about.html" class="nobuy">About Us</a></li>
-                    <li><a href="#contact" class="nobuy">Contact Us</a></li>
-                    <li><a href="/product.html" class="nobuy buy">Buy Now</a></li>
-                    <li><a href="/Replacementandreplacement.html" class="nobuy mobile">Return Policy</a></li>
-                    <li id="orderbutton"><a href="/my-order.html">My Orders</a></li>
-                </ul>
-
-                <div class="accoud">
-                    <div><p>Account</p></div>
-                    <div class="condinu"><img src="icons/Vector.svg" ></div>
-                </div>
-                <style>
-                    .accoud{
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        border:1.6px dotted black ;
-                        align-self: bottom;
-                        width: 80%;
-                        margin: 10px auto;
-                        height: 60px;
-                        border-radius: 35px;
-                        padding: 0px 10px 0px 23px;
-                        position: absolute;
-                        bottom: 80px;
-                        left: 30px;
-                    }
-                    .accoud p{
-                        font-size: 18px;
-                    }
-                    .condinu{
-                        background-color: black;
-                        border-radius: 60px;
-                    }
-                    .condinu img{
-                        width: 36px;
-                    }
-                </style>
-
-           </div>
-           
-        </div>
-   <div class="white"></div>
-   <nav>
-        <div class="logo">
-            
-            
-                <img src="icons/15_logo_readex(1).png" alt="" class="logo">
-            
-        </div>
-<div class="cart-and-menu">
-        <div class="cart-icon">
-            <a href="/cart.html"><img src="icons/cart_icon.svg"  alt=""></a>
-        </div>
-        <div class="toggle">
-                <button class="menu toggle-button">
-                    <img src="icons/align-left.svg" width="30px" alt="">
-                </button>
-            </div>
-            </div>
-       
-    </nav>
+      <div class="navbar-links"></div>
+ <div id="navigation-bar"></div>
     <div class="cartt">
         <div class="heading"><p>My Orders</p></div>
 
         <div class="my-order">
              <div class="cart-product">
                 <div class="cart-product-image">
-                    <img src="img/product-1.jpg" alt="" class="cart-product-img" width="100%">
+                    <img src="Assets/img/product-1.jpg" alt="" class="cart-product-img" width="100%">
                 </div>
                 <div class="cart-product-details">
                     <div class="cart-product-title">
@@ -109,82 +30,20 @@
                     
                     <div class="cart-product-price">
                          </div>
-                        <div style="grid-area: qnt; position: relative;"><img src="img/delete.svg" style="margin-left: 60%;">                    
+                        <div style="grid-area: qnt; position: relative;"><img src="Assets/icons/delete.svg" style="margin-left: 60%;">                    
                     </div>
                 </div>
             </div>
-
-
             <div class="order-status">
                 <p>Order Status:</p>
-                <img src="img/Ordered.svg" alt="" width="172px">
+                <img src="Assets/img/Ordered.svg" alt="" width="172px">
             </div>
-
-
-
         </div>
     </div>
-
     <!-- Delete Confirmation Popup -->
-    <style>
-    #delete-popup {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
-        background: rgba(0,0,0,0.4);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-    }
-    #delete-popup .popup-content {
-        background: #fff;
-        border-radius: 25px;
-        padding: 32px 20px 20px;
-        max-width: 320px;
-        width: 90%;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-        text-align: center;
-        position: relative;
-        transition: 0.4s ease-in-out;
-    }
-    #delete-popup .popup-content img {
-        width: 48px;
-        margin-bottom: 7px;
-    }
-    #delete-popup .popup-content p {
-        font-size: 17px;
-        margin-bottom: 22px;
-        line-height: 130%;
-        color: #6E6E6E;
-    }
-    #delete-popup .popup-actions {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-    }
-    #confirm-delete,#cancel-delete{
-        width: 50%;
-        height: 55px;
-         border-radius: 13px;
-         border: none;
-         padding: 8px 20px;
-         font-size: 16px;
-        cursor: pointer;
-    }
-
-    #cancel-delete {
-        background: #DFFFE0;
-        color: #12AC6B;
-    }
-    #confirm-delete {
-        background: #FFDFDF;
-        color: #FF5252;
-    }
-    </style>
     <div id="delete-popup">
         <div class="popup-content">
-            <img src="img/delete.svg" alt="Delete">
+            <img src="Assets/icons/delete.svg" alt="Delete">
             <p>Are you sure you want to <br>
 Cancel the order?</p>
             <div class="popup-actions">
@@ -193,102 +52,8 @@ Cancel the order?</p>
             </div>
         </div>
     </div>
-    <style>
-    #delete-popup .popup-content {
-        opacity: 0;
-        transform: scale(0.92);
-        animation: popup-in 0.32s cubic-bezier(.22,1.12,.62,1.01) forwards;
-    }
-    #delete-popup[style*="display: none"] .popup-content {
-        opacity: 0 !important;
-        transform: scale(0.92) !important;
-        animation: none !important;
-    }
-    @keyframes popup-in {
-        from {
-            opacity: 0;
-            transform: scale(0.92);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    </style>
-    <script>
-    // Animate popup on show
-    const popup = document.getElementById('delete-popup');
-    const popupContent = popup.querySelector('.popup-content');
-    function showPopup() {
-        popup.style.display = 'flex';
-        popupContent.style.animation = 'none';
-        // Force reflow to restart animation
-        void popupContent.offsetWidth;
-        popupContent.style.animation = 'popup-in 0.32s cubic-bezier(.22,1.12,.62,1.01) forwards';
-    }
-    document.querySelectorAll('.cart-product img[src$="delete.svg"]').forEach(function(delBtn) {
-        delBtn.style.cursor = "pointer";
-        delBtn.onclick = function(e) {
-            showPopup();
-        };
-    });
-    document.getElementById('cancel-delete').onclick = function() {
-        popup.style.display = 'none';
-    };
-    document.getElementById('confirm-delete').onclick = function() {
-        popup.style.display = 'none';
-        alert('Order deleted!');
-    };
-    popup.addEventListener('click', function(e) {
-        if (e.target === this) {
-            popup.style.display = 'none';
-        }
-    });
-    </script>
-    <script>
-        // Show popup when delete icon is clicked
-        document.querySelectorAll('.cart-product img[src$="delete.svg"]').forEach(function(delBtn) {
-            delBtn.style.cursor = "pointer";
-            delBtn.onclick = function(e) {
-                document.getElementById('delete-popup').style.display = 'flex';
-            };
-        });
-        // Hide popup on cancel
-        document.getElementById('cancel-delete').onclick = function() {
-            document.getElementById('delete-popup').style.display = 'none';
-        };
-        // Handle delete confirmation
-        document.getElementById('confirm-delete').onclick = function() {
-            // Add your delete logic here
-            document.getElementById('delete-popup').style.display = 'none';
-            alert('Order deleted!');
-        };
-        // Close popup when clicking outside the popup-content
-        document.getElementById('delete-popup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
-    </script>
-    <script>
-        // Show popup when delete icon is clicked
-        document.querySelectorAll('.cart-product img[src$="delete.svg"]').forEach(function(delBtn) {
-            delBtn.style.cursor = "pointer";
-            delBtn.onclick = function(e) {
-                document.getElementById('delete-popup').style.display = 'flex';
-            };
-        });
-        // Hide popup on cancel
-        document.getElementById('cancel-delete').onclick = function() {
-            document.getElementById('delete-popup').style.display = 'none';
-        };
-        // Handle delete confirmation
-        document.getElementById('confirm-delete').onclick = function() {
-            // Add your delete logic here
-            document.getElementById('delete-popup').style.display = 'none';
-            alert('Order deleted!');
-        };
-    </script>
+    <script src="js/my-order.js"></script>
     <script src="js/navbar.js"></script>
+  <script src="js/loadPartials.js"></script>
 </body>
 </html>
