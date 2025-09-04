@@ -22,7 +22,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-document.getElementById('buynowbtn').onclick = function(e) {
+document.querySelector('.buy-now-content').addEventListener("click", (e)=> {
     e.preventDefault(); // Prevent default form submission
 
     const quantity = localStorage.getItem('quantity'); // Retrieve the value from local storage
@@ -30,15 +30,14 @@ document.getElementById('buynowbtn').onclick = function(e) {
     const totalPrice = unitPrice * quantity;
 
     var name = document.getElementById('name').value.trim();
-    var email = document.getElementById('email').value.trim();
     var address = document.getElementById('address').value.trim();
     var pincode = document.getElementById('pincode').value.trim();
     var number = document.getElementById('number').value.trim();
     var country = document.getElementById('country').value.trim();
     var state = document.getElementById('state').value.trim();
-    var productPrice = document.getElementById('price').innerHTML;
+    // var productPrice = document.getElementById('price').innerHTML;
 
-    if (name === '' || address === '' || number === ''|| email === '') {
+    if (name === '' || address === '' || number === '' || pincode === '' || country === '' || state === '') {
         alert('Please fill in all the fields.');
         return;
     }
@@ -56,7 +55,7 @@ document.getElementById('buynowbtn').onclick = function(e) {
             // Send data to Firebase
             var orderData = {
                 name: name,
-                email: email,
+                // email: email,
                 pincode: pincode,
                 address: address,
                 number: number,
@@ -81,7 +80,6 @@ document.getElementById('buynowbtn').onclick = function(e) {
         },
         "prefill": {
             "name": name,
-            "email": email,
             "contact": number
         },
         "notes": {
@@ -95,4 +93,4 @@ document.getElementById('buynowbtn').onclick = function(e) {
     var rzp1 = new Razorpay(options);
     rzp1.open();
     e.preventDefault();
-}
+})
