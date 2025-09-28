@@ -132,3 +132,6 @@
                 suggestionsList.innerHTML = '';
             }
             };
+            document.getElementById("adjustable-quran-stand").addEventListener("click", function() {
+                window.location.href = "product.html#adjustable-quran-stand";
+            });
