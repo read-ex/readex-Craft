@@ -1,15 +1,17 @@
     .MARGINNEE{
-                    margin-left: 40px;
-                    display: block;
                     overflow: hidden;
-                    width: 100vw;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: column;
+      
                 }
             .slide-menu{
                 display: flex;
                 overflow-x:auto;
                 gap: 8px;
                 padding: 5px;
-                width: 370px;
+                
                 white-space: nowrap;
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
@@ -281,4 +283,26 @@ width: 100%;
   height: auto;
 }
 }
-
+.Shope-text{
+  margin-bottom: 8px; 
+  display: flex; 
+  justify-content: space-between; 
+  width: 100%; 
+  
+}
+@media(max-width:700px){
+  .Shope-text {
+  padding-right: 10%;
+  margin-bottom: 30px;
+}
+  .MARGINNEE{
+     margin-left: 40px;}
+  .slide-menu{
+    width: 370px;
+  }
+}
+@media(min-width:500px){
+  .Shope-text {
+  padding-right: 0%;
+}
+}
