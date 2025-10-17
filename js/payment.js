@@ -1,15 +1,17 @@
 // Use the latest modular SDK from Firebase version 9+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
         import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+var quantity=1;
+document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                document.querySelector('.total-amount').textContent = 3950;
+            }else{
+                document.querySelector('.total-amount').textContent = cart[0].price*cart[0].quantity - cart[0].discount*cart[0].quantity;
+                quantity=cart[0].quantity;
+            }
+        });
 
-window.addEventListener('DOMContentLoaded', function () {
-    const quantity = localStorage.getItem('quantity'); // Retrieve the value from local storage
-    const unitPrice = 3950; // Unit price
-    const totalPrice = unitPrice * quantity;
-    if (quantity) {
-        document.getElementById('price').innerHTML = `${totalPrice}`; // Display the value
-    }
-});
 
         // -----------------------------------------------------------------------------------
         // STEP 2: PASTE YOUR FIREBASE CONFIGURATION HERE
@@ -50,7 +52,6 @@ console.log(db);
           var countryCode = document.getElementById('countryCode').value.trim();
           var state = document.getElementById('state').value.trim();
           var number = document.getElementById('number').value.trim();
-
             // statusMessage.textContent = 'Processing...';
             // statusMessage.className = 'text-gray-500';
 
@@ -64,6 +65,7 @@ console.log(db);
                 state:state,
                 number: number,
                 orderStatus: 'pending', // You can add other useful info
+                quantity: quantity,
                 createdAt: serverTimestamp() // Adds a server-side timestamp
             };
 

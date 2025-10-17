@@ -75,18 +75,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 <script src="js/payment.js" type="module"></script>
-<script>
- document.addEventListener('DOMContentLoaded', function() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            if (cart.length === 0) {
-                alert('Your cart is empty. Please add items to the cart before proceeding to checkout.');
-                window.location.href = 'cart.html'; // Redirect to cart page
-            }else{
-                document.querySelector('.total-amount').textContent = cart[0].price*cart[0].quantity - cart[0].discount*cart[0].quantity;
-            }
-        });
-
-</script>
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
