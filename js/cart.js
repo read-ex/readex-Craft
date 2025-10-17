@@ -17,9 +17,13 @@
                 const product = cart[0];
                 document.querySelector('.cart-product-img').src = product.image;
                 document.querySelector('.cart-product-title span').textContent = product.name;
-                document.querySelector('.cart-product-title p').innerHTML = `<span style="font-family: degular-medium;">${product.name}</span>`;
-                document.querySelector('.cart-product-price-value').textContent = product.price;
                 document.querySelector('.cart-product-quantity').textContent = product.quantity;
+                document.querySelector('.cart-product-title p').innerHTML = `<span style="font-family: degular-medium;">${product.name}</span>`;
+                document.querySelector('.cart-product-price-value').textContent = product.price-product.discount;
+                document.querySelector('.item-count').textContent = product.quantity;
+                document.querySelector('.item-price').textContent = product.price*product.quantity;
+                document.querySelector('.item-discount').textContent = product.discount*product.quantity;
+                document.querySelector('.total-amount').textContent = product.price*product.quantity - product.discount*product.quantity;
 
                 // Remove product from cart
                 document.querySelector('.cart-product-cross-icon img').onclick = function() {
@@ -38,6 +42,10 @@
                     cart[0].quantity = product.quantity;
                     localStorage.setItem('cart', JSON.stringify(cart));
                     // Optionally, update price details
+                     document.querySelector('.item-count').textContent = product.quantity;
+                document.querySelector('.item-price').textContent = product.price*product.quantity;
+                document.querySelector('.item-discount').textContent = product.discount*product.quantity;
+                document.querySelector('.total-amount').textContent = product.price*product.quantity - product.discount*product.quantity;
                 };
                 document.getElementById('decrease').onclick = function() {
                     if (product.quantity > 1) {
@@ -46,6 +54,10 @@
                         cart[0].quantity = product.quantity;
                         localStorage.setItem('cart', JSON.stringify(cart));
                         // Optionally, update price details
+                         document.querySelector('.item-count').textContent = product.quantity;
+                document.querySelector('.item-price').textContent = product.price*product.quantity;
+                document.querySelector('.item-discount').textContent = product.discount*product.quantity;
+                document.querySelector('.total-amount').textContent = product.price*product.quantity - product.discount*product.quantity;
                     }
                 };
             }

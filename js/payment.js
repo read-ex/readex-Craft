@@ -1,3 +1,7 @@
+// Use the latest modular SDK from Firebase version 9+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
 window.addEventListener('DOMContentLoaded', function () {
     const quantity = localStorage.getItem('quantity'); // Retrieve the value from local storage
     const unitPrice = 3950; // Unit price
@@ -7,90 +11,99 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyCSerXZZtRlGb63GJd-HefhGfKDZnbjjJc",
-  authDomain: "readex-8d80e.firebaseapp.com",
-  databaseURL: "https://readex-8d80e-default-rtdb.firebaseio.com",
-  projectId: "readex-8d80e",
-  storageBucket: "readex-8d80e.firebasestorage.app",
-  messagingSenderId: "127711263723",
-  appId: "1:127711263723:web:02b1d63d5a7b371828f7ae",
-  measurementId: "G-Q2Q59R8WRN"
+        // -----------------------------------------------------------------------------------
+        // STEP 2: PASTE YOUR FIREBASE CONFIGURATION HERE
+        // Find this in your Firebase project settings under "General" -> "Your apps".
+        // It's crucial that you replace these placeholder values with your actual config.
+        // -----------------------------------------------------------------------------------
+        const firebaseConfig = {
+  apiKey: "AIzaSyD6pUbSxksN1uPTuvV8ckSl5241a6c0bS8",
+  authDomain: "readex-userdata.firebaseapp.com",
+  projectId: "readex-userdata",
+  storageBucket: "readex-userdata.firebasestorage.app",
+  messagingSenderId: "610302361527",
+  appId: "1:610302361527:web:cb5be0d9e38cca9dd0b232",
+  measurementId: "G-CJVYZ0JG9C"
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
 
-document.querySelector('.buy-now-content').addEventListener("click", (e)=> {
-    e.preventDefault(); // Prevent default form submission
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
 
-    const quantity = localStorage.getItem('quantity'); // Retrieve the value from local storage
-    const unitPrice = 3950; // Unit price
-    const totalPrice = unitPrice * quantity;
+        // Get a reference to the Firestore database service
+        const db = getFirestore(app);
+console.log(db);
+        // -----------------------------------------------------------------------------------
+        // STEP 3: JAVASCRIPT TO HANDLE THE FORM SUBMISSION
+        // -----------------------------------------------------------------------------------
+        const shippingForm = document.getElementById('buyNow');
+        // const statusMessage = document.getElementById('status-message');
 
-    var name = document.getElementById('name').value.trim();
-    var address = document.getElementById('address').value.trim();
-    var pincode = document.getElementById('pincode').value.trim();
-    var number = document.getElementById('number').value.trim();
-    var country = document.getElementById('country').value.trim();
-    var state = document.getElementById('state').value.trim();
-    // var productPrice = document.getElementById('price').innerHTML;
+        shippingForm.addEventListener('click', async (e) => {
+            // Prevents the default form reload behavior
+            e.preventDefault();
 
-    if (name === '' || address === '' || number === '' || pincode === '' || country === '' || state === '') {
-        alert('Please fill in all the fields.');
-        return;
-    }
+            // Get the current values from the form inputs
+          var name = document.getElementById('name').value.trim();
+          var address = document.getElementById('address').value.trim();
+          var pincode = document.getElementById('pincode').value.trim();
+          var country = document.getElementById('country').value.trim();
+          var countryCode = document.getElementById('countryCode').value.trim();
+          var state = document.getElementById('state').value.trim();
+          var number = document.getElementById('number').value.trim();
 
-    var options = {
-        "key": "rzp_live_hYulURwK7yq2ES", // Enter the Key ID generated from the Dashboard
-        "amount": totalPrice * 100, // Amount is in currency subunits. Default currency is INR. Hence, 500 refers to 500 paise
-        "currency": "INR",
-        "name": "Readex Craft",
-        "description": "Adjustable Quran Stand",
-        "image": "https://readex.in/img/favicon.jpg",
-        "handler": function(response) {
-            alert("Payment Successful. Razorpay Payment ID: " + response.razorpay_payment_id);
+            // statusMessage.textContent = 'Processing...';
+            // statusMessage.className = 'text-gray-500';
 
-            // Send data to Firebase
-            var orderData = {
-                name: name,
-                // email: email,
-                pincode: pincode,
+            // Create a data object to save to Firestore
+            const orderDetails = {
+                fullName: name,
                 address: address,
-                number: number,
+                pincode: pincode,
                 country: country,
-                state: state,
-                payment_id: response.razorpay_payment_id,
-                amount: productPrice
+                countryCode:countryCode,
+                state:state,
+                number: number,
+                orderStatus: 'pending', // You can add other useful info
+                createdAt: serverTimestamp() // Adds a server-side timestamp
             };
 
-            var newOrderKey = firebase.database().ref().child('orders').push().key;
-            var updates = {};
-            updates['/orders/' + newOrderKey] = orderData;
-            firebase.database().ref().update(updates)
-                .then(() => {
-                    localStorage.setItem('status', 'yes');
-                    window.location.href = '/succsess.html';
-                })
-                .catch((error) => {
-                    alert('Error saving order details: ' + error.message);
-                });
-            
-        },
-        "prefill": {
-            "name": name,
-            "contact": number
-        },
-        "notes": {
-            "address": address
-        },
-        "theme": {
-            "color": "#700000"
-        }
-    };
+            emailjs.init({
+          publicKey: "NV4eIQjZIW9ebnWtE", // Get this from your EmailJS account
+        });
 
-    var rzp1 = new Razorpay(options);
-    rzp1.open();
-    e.preventDefault();
-})
+        // 2. Add a click event listener to your button
+           
+        function sendOrderEmail() {
+            // These IDs can be found in your EmailJS account
+            const serviceID = 'service_c560en7';
+            const templateID = 'template_1m6qi7l';
+
+           
+
+            // 4. Send the email using the object
+            emailjs.send(serviceID, templateID, orderDetails)
+                .then(() => {
+                    alert('Order confirmation sent successfully!');
+                }, (err) => {
+                    alert('Failed to send confirmation. Error: ' + JSON.stringify(err));
+                });
+        }
+         sendOrderEmail();
+            // Use a try/catch block to handle potential errors
+            try {
+                // `addDoc` creates a new document with a unique, auto-generated ID in the "orders" collection.
+                const docRef = await addDoc(collection(db, "orders"), orderDetails);
+                
+                console.log("Order data saved with ID: ", docRef.id);
+                // statusMessage.textContent = '✅ Order confirmed successfully!';
+                // statusMessage.className = 'text-green-600';
+                // shippingForm.reset(); // Clear the form fields
+                window.location.href = 'succsus.html';
+            } catch (error) {
+                console.error("Error saving document: ", error);
+                // statusMessage.textContent = '❌ There was an error placing your order.';
+                // statusMessage.className = 'text-red-600';
+            }
+        });
+
+

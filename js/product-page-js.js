@@ -138,7 +138,8 @@ addToCartBtn.addEventListener('click', function() {
             const product = {
                 id: 'readex-quran-stand',
                 name: 'Readex-Adjustable Quran Stand',
-                price: 3950,
+                price: 4500,
+                discount: 550,
                 quantity: quantity,
                 image: 'Assets/img/product-1.jpg'
             };
