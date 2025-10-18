@@ -79,26 +79,6 @@
             <p id="quantity-value" style="min-width:24px;display:inline-block;text-align:center;">1</p>
             <button id="increase" class="btn" aria-label="Increase quantity"><img src="Assets/icons/plus.png" alt="+"></button>
             <script>
-                const decreaseBtn = document.getElementById('decrease');
-                const increaseBtn = document.getElementById('increase');
-                const quantityValue = document.getElementById('quantity-value');
-                let quantity = 1;
-
-                function updateQuantityDisplay() {
-                    quantityValue.textContent = quantity;
-                }
-
-                decreaseBtn.addEventListener('click', function() {
-                    if (quantity > 1) {
-                        quantity--;
-                        updateQuantityDisplay();
-                    }
-                });
-
-                increaseBtn.addEventListener('click', function() {
-                    quantity++;
-                    updateQuantityDisplay();
-                });
             </script></div>
         <button class="add-to-cart" id="addToCartBtn">
             <span id="cart-animation" style="display:none; margin-left:10px; font-size:18px;">
@@ -106,7 +86,7 @@
             </span>
             <span class="not-added">Add to Cart</span>
         </button>
-        <script>
+        <script src="js/add-to-cart.js">
             // Add to Cart with localStorage
             
         </script>
@@ -146,25 +126,6 @@
                 color: #fff;
             }
         </style>
-        <script>
-            const addToCartBtn = document.getElementById('addToCartBtn');
-            const cartAnim = document.getElementById('cart-animation');
-            const notAddedText = document.querySelector('.not-added');
-            addToCartBtn.addEventListener('click', function() {
-            addToCartBtn.classList.add('animated');
-            cartAnim.style.display = 'inline';
-            cartAnim.style.opacity = '1';
-            notAddedText.style.display = 'none';
-            setTimeout(() => {
-                addToCartBtn.classList.remove('animated');
-                cartAnim.style.opacity = '0';
-            }, 1200);
-            setTimeout(() => {
-                cartAnim.style.display = 'none';
-                notAddedText.style.display = 'block';
-            }, 1500);
-            });
-        </script>
     </div>
     <div class="buy-now-btn">
         <button class="buy-now-content" onclick="checkOut()">Buy Now <img src="Assets/icons/Button-arrow-right.png" width="26px"></button>
