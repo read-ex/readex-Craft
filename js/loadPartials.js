@@ -46,10 +46,10 @@ function renderFooter() {
         <p>Email us at <a href="mailto:readexindia@gmail.com">readexindia@gmail.com</a></p>
         <p>Readex Crafts, Nellaya, Palakkad, Kerala,<br> India. 679335</p>
         <div class="social-media">
-          <img src="Assets/icons/whatsapp.png" alt="whatsapp">
-          <img src="Assets/icons/instagram.png" alt="instagram">
-          <img src="Assets/icons/facebook.png" alt="Facebook">
-          <img src="Assets/icons/youtube.png" alt="youtube">
+          <a href="whatsapp://send?phone=918921324114&text=Hello"><img src="Assets/icons/whatsapp.png" alt="whatsapp"></a>
+          <a href="https://www.instagram.com/readexcrafts/"><img src="Assets/icons/instagram.png" alt="instagram"></a>
+          <a href="https://www.facebook.com/profile.php?id=100092044381846"><img src="Assets/icons/facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="Assets/icons/youtube.png" alt="youtube"></a>
         </div>
       </div>
       <div class="support">

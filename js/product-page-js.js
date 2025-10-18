@@ -134,8 +134,10 @@ if (slider) {
         isMouseDown = false;
     });
 }
+
 addToCartBtn.addEventListener('click', function() {
-            const product = {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+ const product = {
                 id: 'readex-quran-stand',
                 name: 'Readex-Adjustable Quran Stand',
                 price: 4500,
@@ -143,7 +145,6 @@ addToCartBtn.addEventListener('click', function() {
                 quantity: quantity,
                 image: 'Assets/img/product-1.jpg'
             };
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existing = cart.find(item => item.id === product.id);
             if (existing) {
                 existing.quantity += quantity;
