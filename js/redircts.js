@@ -3,10 +3,18 @@ document.querySelectorAll('.gotoproductpage').forEach(function(btn) {
         window.location.href = "product.html";
     });
 });
- document.querySelector('.gotoshop').addEventListener('click', function() {
+var goToShopBtn = document.querySelector('.gotoshop');
+if (goToShopBtn) {
+    goToShopBtn.addEventListener('click', function() {
         window.location.href = "shop.html";
     });
-function checkOut(){
-    window.location.href = "address.html";
+}
 
+function faqButton(){
+ console.log("Redirecting to WhatsApp");
+    var phone = '918921324114';
+    var text = 'Hello';
+    // Use the wa.me web URL (works in browsers and will open WhatsApp app on mobile if available)
+    var url = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(text);
+    window.open(url, '_blank');
 }

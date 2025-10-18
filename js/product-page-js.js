@@ -154,6 +154,25 @@ addToCartBtn.addEventListener('click', function() {
             localStorage.setItem('cart', JSON.stringify(cart));
             });
 
+            function checkOut() {
+                window.location.href = "address.html";
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+ const product = {
+                id: 'readex-quran-stand',
+                name: 'Readex-Adjustable Quran Stand',
+                price: 4500,
+                discount: 550,
+                quantity: quantity,
+                image: 'Assets/img/product-1.jpg'
+            };
+            const existing = cart.find(item => item.id === product.id);
+            if (existing) {
+                existing.quantity = quantity;
+            } else {
+                cart.push(product);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            }
 function stopAutoScroll() {
     clearInterval(autoScrollInterval);
 }
